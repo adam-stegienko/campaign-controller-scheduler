@@ -1,0 +1,23 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+
+rabbitmq:
+  exchange: test.campaign.controller.exchange
+  queue: test.campaign.execution.queue
+  routing-key: campaign.execute
+  dlx: test.campaign.controller.dlx
+  error-queue: test.campaign.execution.error.queue
+  error-routing-key: campaign.execute.error
+
+cc-api-rest:
+  base-url: http://localhost:8080
+
+google-ads-api:
+  base-url: http://localhost:8081
+  customer-id: test-customer
+
+scheduler:
+  check-interval-ms: 86400000
+  initial-delay-ms: 86400000
