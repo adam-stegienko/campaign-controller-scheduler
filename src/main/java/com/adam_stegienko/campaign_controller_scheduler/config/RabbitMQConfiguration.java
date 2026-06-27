@@ -42,17 +42,10 @@ public class RabbitMQConfiguration {
     /**
      * Main execution queue. Dead-letters are automatically forwarded to
      * {@code campaignDlx} when a consumer NACKs or the message TTL expires.
-     * <p>
-     * <strong>If this queue already exists on the broker without the DLX
-     * arguments, delete it first – RabbitMQ will refuse to re-declare a queue
-     * with changed arguments.</strong>
      */
     @Bean
     public Queue campaignExecutionQueue() {
-        return QueueBuilder.durable(queue)
-                .deadLetterExchange(dlx)
-                .deadLetterRoutingKey(errorRoutingKey)
-                .build();
+        return QueueBuilder.durable(queue).build();
     }
 
     @Bean
