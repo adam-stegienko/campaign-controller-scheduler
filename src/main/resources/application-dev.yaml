@@ -6,14 +6,6 @@ spring:
     password: ${RABBITMQ_PASSWORD:guest}
     virtual-host: ${RABBITMQ_VHOST:/}
 
-rabbitmq:
-  exchange: test.campaign.controller.exchange
-  queue: test.campaign.execution.queue
-  routing-key: campaign.execute
-  dlx: test.campaign.controller.dlx
-  error-queue: test.campaign.execution.error.queue
-  error-routing-key: campaign.execute.error
-
 cc-api-rest:
   base-url: ${CC_API_REST_BASE_URL:http://campaign-controller-api-dev.apps.stegienko.local}
 
